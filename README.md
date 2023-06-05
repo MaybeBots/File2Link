@@ -56,6 +56,7 @@ python3 bot.py
 1. Make sure to make the bot an admin in your private log channel. This will allow the bot to save files there.
 2. You can send your files directly to the bot's private message (PM). Just make sure to send them as document files. The bot won't be able to accept direct photos or videos etc. (This is only for sudo users)
 3. After the bot saves your file, it will provide you with a special link. When someone clicks on that link, the bot will send them the file you uploaded, as long as it hasn't been deleted.
+4. Additional Command `/broadcast [message]` or `/broadcast (reply to a message` (only for sudo ids)
 
 <h3>Still Having problem feel free to ask in our support group. We're here to help!</h3>
 
