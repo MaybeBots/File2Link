@@ -40,6 +40,6 @@ async def watcher(app, msg):
 
     await DB.add_file_id(file_id, [i.id for i in msg_ids])
 
-@Client.on_message()
+@Client.on_message(filters.private ~env.SUDOERS)
 async def check(app, msg):
     await msg.reply("Please Don't send me messages directly.")
