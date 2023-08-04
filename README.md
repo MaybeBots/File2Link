@@ -19,7 +19,7 @@
 4. `BOT_TOKEN` : A valid bot token, get it from [@BotFather](https://t.me/BotFather)
 5. `LOG_ID` : Your Private Telegram channel's id (Example: -1001246808642)
 6. `SUDO_IDS` : Owner id (Example: 1357907531 2468097531 3579864213)
-
+7. `CHANNEL_USERNAME` : Your public channel username (without @) to enable force sub
 ## Deployment Methods
 
 ### Vps
