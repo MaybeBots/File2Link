@@ -1,7 +1,9 @@
 import env
+import pyromod  # type:ignore
 import logging
 
-from pyrogram import Client, idle
+from client import MyClient
+from pyrogram import idle
 
 # logging things
 logging.basicConfig(
@@ -9,20 +11,28 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S',
     level=logging.INFO)
 
-logging.getLogger('pyrogram').setLevel(logging.WARNING)
+
+def LOGGER(name: str) -> logging.Logger:
+    return logging.getLogger(name)
+
+
+LOGGER('pyrogram').setLevel(logging.WARNING)
 
 # Creating Pyro Client
-app = Client(name='File2Link',
-             api_id=env.API_ID,
-             api_hash=env.API_HASH,
-             bot_token=env.BOT_TOKEN,
-             plugins=dict(root='plugins'))
+app = MyClient(name='File2Link',
+               api_id=env.API_ID,
+               api_hash=env.API_HASH,
+               bot_token=env.BOT_TOKEN,
+               plugins=dict(root='plugins'),
+               workers=4)
+
+
+async def main():
+    LOGGER(__name__).info('Starting Bot...')
+    await app.start()
+    LOGGER(__name__).info(f'{app.me.first_name} is started successfully')
+    await idle()
+    await app.stop()
 
 if __name__ == '__main__':
-    logging.info('Starting Bot...')
-    app.start()
-    me = app.me
-    logging.info(f'{me.first_name} is started successfully')
-    idle()
-    app.stop()
-    logging.info('GoodBye!')
+    app.run(main())

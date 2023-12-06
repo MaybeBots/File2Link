@@ -8,6 +8,9 @@ from pyrogram.errors import FloodWait
 
 @Client.on_message(filters.command("broadcast") & env.SUDOERS)
 async def broadcast(app, msg):
+    if not DB:
+        await msg.reply_text("Mongo db is not configured!")
+        return
     if msg.reply_to_message:
         x = msg.reply_to_message.id
         y = msg.chat.id
@@ -17,12 +20,9 @@ async def broadcast(app, msg):
                 "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]")
         query = msg.text.split(None, 1)[1]
     sent = 0
-    users = []
-    susers = await DB.get_users()
-    if not susers:
+    users = await DB.get_users()
+    if not users:
         return
-    for user in susers:
-        users.append(int(user["user_id"]))
     for i in users:
         try:
             await app.forward_messages(

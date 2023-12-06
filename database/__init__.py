@@ -2,4 +2,7 @@ import env
 
 from database.mongo import Mongo
 
-DB = Mongo(env.MONGO_URL) 
+if env.MONGO_URL:
+    DB = Mongo(env.MONGO_URL)
+else:
+    DB = None

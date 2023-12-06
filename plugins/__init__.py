@@ -4,7 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup as ikm, InlineKeyboardButton as 
 reply_markup = ikm(
   [
     [
-      ikb('⚡ Main Channel ⚡', url=f'https://t.me/{env.CHANNEL}')
+      ikb('⚡ Main Channel ⚡', url=f'https://t.me/{env.FORCE_SUB}')
     ]
   ]
 )
