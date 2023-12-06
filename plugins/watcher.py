@@ -13,7 +13,7 @@ async def batch(app: Client, message: Message):
     while True:
         try:
             f_msg = await message.from_user.ask(
-                "Please forward the first message from db channel or post link",
+                "Please forward the first message from db channel",
                 filters=(filters.forwarded | (
                     filters.text & ~filters.forwarded)),
                 timeout=60,
@@ -26,7 +26,7 @@ async def batch(app: Client, message: Message):
         if f_msg:
             break
         else:
-            await message.reply("This message isnt forwarded from your db channel or post link is from other channel")
+            await message.reply("This message isnt forwarded from your db channel")
 
     while True:
         try:
@@ -44,7 +44,7 @@ async def batch(app: Client, message: Message):
         if s_msg:
             break
         else:
-            await message.reply("This message isnt forwarded from your db channel or post link is from other channel")
+            await message.reply("This message isnt forwarded from your db channel")
 
     string = f"get-{f_msg*6969}-{s_msg*6969}"
     link = encode(string)
@@ -62,7 +62,7 @@ async def get(app: Client, message: Message):
     while True:
         try:
             msg = await message.from_user.ask(
-                "Please forward the message from db channel or post link",
+                "Please forward the message from db channel",
                 filters=(filters.forwarded | (
                     filters.text & ~filters.forwarded)),
                 timeout=60,
@@ -75,7 +75,7 @@ async def get(app: Client, message: Message):
         if msg:
             break
         else:
-            await message.reply("This msg isnt forwarded from your db channel or post link is from other channel")
+            await message.reply("This msg isnt forwarded from your db channel")
 
     string = f"get-{msg*6969}"
     link = encode(string)
