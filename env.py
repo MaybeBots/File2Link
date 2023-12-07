@@ -14,7 +14,7 @@ SUDO_IDS = list(map(int, os.getenv("SUDO_IDS", "").split()))
 # OPTIONAL VARS
 MONGO_URL = os.getenv("MONGO_DB", "").strip()
 FORCE_SUB = os.getenv('FORCE_SUB', "").strip()
-DELAY_TIME = int(os.getenv('DELAY_TIME', 0.5).strip())
+DELAY_TIME = float(os.getenv('DELAY_TIME', 0.5))
 
 
 SUDOERS = filters.user()
