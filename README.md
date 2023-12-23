@@ -17,11 +17,12 @@
 1. `API_ID` : Telegram API_ID, get it from my.telegram.org/apps
 2. `API_HASH` : Telegram API_ID, get it from my.telegram.org/apps
 3. `BOT_TOKEN` : A valid bot token, get it from [@BotFather](https://t.me/BotFather)
-4. `DB_CHANNEL` : Your Private Telegram channel's id (Example: -1001246808642)
-5. `SUDO_IDS` : Owner id (Example: 1357907531 2468097531 3579864213)
-6. `MONGO_DB` : A valid Mongo Db url to store msg_ids and userids
+4. `DB_CHANNEL` : Your Telegram channel's id Wwhere all th files are uploaded (Example: -1001246808642)
+5. `SUDO_IDS` : Owner ids (Example: 1357907531 2468097531 3579864213)
+6. `MONGO_DB` : A valid Mongo Db url to store userids
 7. `FORCE_SUB` : Your channel username to enable force sub
 8. `DELAY_TIME` : Delay time for bot sending files
+9. `HASH` : Random numbers for hashing the link (default: 6969)
 
 ## Deployment Methods
 
@@ -66,7 +67,7 @@ python3 bot.py
 
 1. Make sure to make the bot an admin in your Db channel.
 2. You can send your files/audio/text/etc directly to the bot's private message (PM). (This is only for sudo users)
-or by commands (/batch and /get)
+   or by commands (/batch and /get)
 3. After the bot saves your file, it will provide you with a special link. When someone clicks on that link, the bot will send them the file you uploaded, as long as it hasn't been deleted.
 4. Additional Command `/broadcast [message]` or `/broadcast (reply to a message` (only for sudo ids)
 

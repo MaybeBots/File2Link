@@ -18,11 +18,15 @@ async def must_join_channel(bot: Client, msg: Message):
             else:
                 link = "https://t.me/" + FORCE_SUB
             try:
+                markup = [
+                    [InlineKeyboardButton("⚡ Join Channel ⚡", url=link)]
+                ]
+                if msg.text[0:6] == "/start" and len(msg.text) > 7:
+                    markup.append([InlineKeyboardButton(
+                        "🔄 Refresh 🔄", url=f"https://t.me/{bot.me.username}?start={msg.text[7:]}")])
                 await msg.reply(
                     f"Looks like you haven't join our chat yet! Please Join First",
-                    reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("⚡ Join Channel ⚡", url=link)]
-                    ])
+                    reply_markup=InlineKeyboardMarkup(markup)
                 )
                 await msg.stop_propagation()
             except ChatWriteForbidden:

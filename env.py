@@ -12,9 +12,10 @@ DB_CHANNEL = os.getenv('DB_CHANNEL', "").strip()
 SUDO_IDS = list(map(int, os.getenv("SUDO_IDS", "").split()))
 
 # OPTIONAL VARS
-MONGO_URL = os.getenv("MONGO_DB", "").strip()
+MONGO_URL = os.getenv("MONGO_URL", "").strip()
 FORCE_SUB = os.getenv('FORCE_SUB', "").strip()
 DELAY_TIME = float(os.getenv('DELAY_TIME', 0.5))
+HASH = int(os.getenv('HASH', 6969))
 
 
 SUDOERS = filters.user()
