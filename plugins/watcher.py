@@ -91,7 +91,7 @@ async def get(app: Client, message: Message):
 @Client.on_message(filters.private & env.SUDOERS)
 async def get_link(app: Client, message: Message):
     send_msg = await message.copy(env.DB_CHANNEL)
-    string = f"get-{send_msg.id*6969}"
+    string = f"get-{send_msg.id*env.HASH}"
     link = encode(string)
     await message.reply(f"Here is your link:\n `https://t.me/{app.me.username}?start={link}`",
                         disable_web_page_preview=True,
